@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EaseEat</title>
+
+    <!-- เพิ่ม favicon -->
+    <link rel="icon" href="Img/LOGO.png" type="image/x-icon">
+    <!-- เพิ่มฟอนต์ Lato Bold จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <!-- เพิ่ม Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- เพิ่มสไตล์ CSS -->
+    <link href="css/Header_Footer.css" rel="stylesheet">
+    <link href="css/Home.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="Home.html">
+                    <img src="Img/LOGO.png" alt="Logo">
+                    <h1>EASEEAT</h1>
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="Home.html" class="nav-item nav-link active">หน้าหลัก</a>
+                        <a href="InstructionsForm.html" class="nav-item nav-link">ประเมิน</a>
+                        <a href="community.html" class="nav-item nav-link">ชุมชน</a>
+                        <a href="Nutrients.html" class="nav-item nav-link">โภชนาการ</a>
+                        <a id="nav-login" href="login.html" class="nav-item nav-link">Login</a>
+                        <a id="logout" href="#" class="nav-item nav-link" style="display: none;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Banner Section -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide fade">
+                <img src="Img/1.jpg" alt="Slide 1">
+            </div>
+            <div class="slide fade">
+                <img src="Img/1.jpg" alt="Slide 2">
+            </div>
+            <div class="slide fade">
+                <img src="Img/1.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <!-- ปุ่มเลื่อน -->
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+    <!-- Banner End -->
+
+    <div class="Features">
+        <div class="FeaturesMenu">
+            <a href="InstructionsForm.html" class="Features1">
+                <img src="Img/contact-form.png" alt="ประเมินความเครียด">
+                <h2>ประเมินความเครียด</h2>
+            </a>
+            <a href="community.html" class="Features2">
+                <img src="Img/comunicate.png" alt="ชุมชนของเรา">
+                <h2>ชุมชนของเรา</h2>
+            </a>
+            <a href="BMR-calculato.html" class="Features3">
+                <img src="Img/nutrition.png" alt="คำนวนTDEE">
+                <h2>คำนวนTDEE</h2>
+            </a>
+            <a href="AiFood.html" class="Features4">
+                <img src="Img/calories.png" alt="คำนวนโภชนาการ">
+                <h2>คำนวนโภชนาการ</h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="Home-Intro">
+        <div class="fade-in">
+            <h2>โรคคลั่งผอม</h2>
+            <p> โรคคลั่งผอม (Anorexia Nervosa) เป็นโรคทางจิตเวชที่มีลักษณะพิเศษคือ
+                การมีพฤติกรรมการควบคุมการรับประทานอาหารอย่างรุนแรงเพื่อลดน้ำหนักจนถึงขั้นผิดปกติ
+                โดยบุคคลที่เป็นโรคนี้มักจะมีความวิตกกังวลเกี่ยวกับน้ำหนักตัวและรูปร่างของตนเองในลักษณะที่ผิดปกติ
+                และมักจะเห็นตนเองอ้วนแม้ว่าจะมีน้ำหนักตัวต่ำกว่าค่าปกติอย่างมาก
+                โรคนี้สามารถส่งผลกระทบทั้งทางด้านจิตใจและร่างกาย และหากไม่ได้รับการรักษา
+                อาจทำให้เกิดผลกระทบต่อสุขภาพที่รุนแรงและเป็นอันตรายถึงชีวิตได้
+            </p>
+        </div>
+    </div>
+    <div class="Home-Intro">
+        <div class="fade-in">
+            <h2>สาเหตุของโรคคลั่งผอม</h2>
+            <p> โรคคลั่งผอม คือผู้ป่วยจะไม่พอใจในตนเอง เกิดจากพื้นฐานความรู้สึกว่าตนเองยังไม่ดีพอ
+                หรือยังไม่ประสบความสำเร็จ
+                ทั้งที่ผู้ป่วยโรคนี้มักเป็นคนที่ประสบความสำเร็จในหลายเรื่อง เช่น เป็นคนเรียนดี
+                หรือมีความสามารถด้านอื่นที่ดี
+                แต่คนกลุ่มนี้มักมีความคาดหวังในตนเองสูงเกินไป และไม่รู้สึกพอใจกับความสำเร็จที่เกิดขึ้น
+                อยากทำให้สำเร็จมากกว่าที่เป็นอยู่ เมื่อถูกกระตุ้นในเรื่องของรูปร่าง เช่น โดนทักว่าอ้วน
+                ผู้ป่วยจะกังวลเกี่ยวกับรูปร่างตนเองมากเกินไป และเริ่มควบคุมน้ำหนัก
+                เมื่อน้ำหนักลดลงจะรู้สึกภูมิใจที่ทำได้
+                แต่จะยังไม่พอใจในรูปร่างและอยากลดน้ำหนักต่อไปเรื่อย ๆ
+                เพราะทุกครั้งที่น้ำหนักลดลงผู้ป่วยจะภูมิใจและมั่นใจ
+                กระทั่งน้ำหนักต่ำกว่ามาตรฐานและอาจเป็นอันตรายในที่สุด
+            </p>
+        </div>
+    </div>
+    <!-- Nutrients End -->
+
+
+    <!-- คำกำลังใจ Start -->
+    <div class="Home-Intro">
+        <div class="fade-in">
+            <h1>"คุณมีค่ามากกว่าตัวเลขบนตาชั่ง จงให้ความสำคัญกับความสุขและสุขภาพจิตที่ดีของคุณ"</h2>
+        </div>
+    </div>
+    <!-- คำกำลังใจ End -->
+
+    <!-- ความเครียดส่งผลต่อพฤติกรรมการกินที่ผิดปกติอย่างไร Start -->
+    <div class="Stress-Intro">
+        <div class="fade-in">
+            <h2>ความเครียดส่งผลต่อพฤติกรรมการกินที่ผิดปกติอย่างไร?</h2>
+            <p>เมื่อเกิดความเครียด ร่างกายจะหลั่งฮอร์โมนมาได้ 2 ชนิด คือ คอร์ติซอล (Cortisol) และ อะดรีนาลิน
+                (Adrenaline)
+                ซึ่งมีบทบาทสำคัญในการตอบสนองต่อความเครียด และส่งผลโดยตรงต่อพฤติกรรมการกินของเรา</p>
+
+            <div class="Stress-Intro-Info">
+                <p>1. คอร์ติซอล (Cortisol)
+                    คอร์ติซอลเป็นฮอร์โมนที่ถูกหลั่งออกมาจากต่อมหมวกไตเมื่อเรามีความเครียด โดยเฉพาะความเครียดเรื้อรัง
+                    ฮอร์โมนนี้มีหน้าที่กระตุ้นการเผาผลาญพลังงาน และเพิ่มระดับน้ำตาลในเลือดทำให้ร่างกายมีการกระตุ้น
+                    เกิดความอยากอาหารที่ให้พลังงานสูงโดยเฉพาะอาหารประเภทที่มีน้ำตาล และอาหารที่มีไขมัน
+                    ซึ่งอาจทำให้เกิดโรคอ้วน หรือเบาหวาน หากความรุนแรงมากและไม่ได้รับการรักษาอาจส่งผลให้เสียชีวิตได้
+                    คอร์ติซอลสูงยังทำให้การสะสมไขมันในร่างกายเพิ่มขึ้น โดยเฉพาะที่บริเวณหน้าท้อง
+                    ทำให้หลายคนกินมากขึ้นเมื่อเครียด
+                    (หรือที่เรียกว่า “Stress Eating”) และมีแนวโน้มที่จะมีน้ำหนักเพิ่มขึ้น</p>
+                <p></p>
+                <p>2. อะดรีนาลิน (Adrenaline)
+                    อะดรีนาลินถูกหลั่งออกมาในช่วงที่เกิดความเครียดทันทีและรุนแรง เช่น ความกลัวหรือความตกใจ
+                    ซึ่งทำให้ร่างกายเข้าสู่โหมด "Fight or Flight" อะดรีนาลินจะทำให้ระบบย่อยอาหารชะลอตัวลงชั่วคราว
+                    และทำให้บางคนรู้สึกเบื่ออาหารหรือกินอะไรไม่ลงในช่วงที่มีความเครียดสูงจนสามารถทำให้ร่างกายขาดสารอาหารได้
+                    เพราะร่างกายมุ่งไปที่การรับมือกับสถานการณ์ความเครียดมากกว่าการย่อยอาหาร
+                    และอะดรีนาลินยังทำให้ร่างกายตื่นตัวมากขึ้น
+                    อาจทำให้รู้สึกตื่นเต้นและยากต่อการผ่อนคลาย ส่งผลให้นอนไม่หลับหรือหลับยาก
+                    ส่งผลให้ผู้ป่วยพักผ่อนไม่เพียงพอและเสียชีวิตได้</p>
+            </div>
+        </div>
+    </div>
+    <!-- ความเครียดส่งผลต่อพฤติกรรมการกินที่ผิดปกติอย่างไร End -->
+
+
+
+    <!-- อาการความเครียด  Start -->
+    <div class="Home">
+        <!-- คำกำลังใจ Start -->
+        <div class="Home-Intro">
+            <div class="fade-in">
+                <h1>"ทุกอย่างจะดีขึ้น อย่าลืมให้เวลาตัวเองได้พักใจและพักกายบ้าง"</h2>
+            </div>
+        </div>
+        <!-- คำกำลังใจ End -->
+        <div class="fade-in">
+            <h2>อาการความเครียด </h2>
+            <ul class="list-Home">
+                <li class="home-item"
+                    data-description="อาการความเครียดสามารถส่งผลให้เกิดพฤติกรรมการกินอาหารที่ไม่ปกติได้ เช่น การกินมากเกินไปหรือน้อยเกินไป ซึ่งอาจเกิดจากการที่ร่างกายตอบสนองต่อความเครียดโดยอัตโนมัติ ทำให้มีผลต่อระบบการทำงานของร่างกายและจิตใจ"
+                    data-image="Img/eating.png">
+                    <img src="Img/eating.png" alt="กินอาหารไม่ปกติ">
+                    <p>กินอาหารไม่ปกติ</p>
+                </li>
+                <li class="home-item"
+                    data-description="เป็นอาการที่พบได้บ่อยเมื่อเครียด ร่างกายจะหลั่งสารเคมีและฮอร์โมนที่กระตุ้นความดันในสมองและกล้ามเนื้อ ทำให้เกิดอาการปวดหัวได้ง่าย"
+                    data-image="Img/headache.png">
+                    <img src="Img/headache.png" alt="ปวดหัว">
+                    <p>ปวดหัว</p>
+                </li>
+                <li class="home-item"
+                    data-description="ความเครียดอาจทำให้ระบบย่อยอาหารทำงานไม่ปกติ จนเกิดอาการปวดท้อง ท้องอืด หรือแม้กระทั่งกระเพาะอาหารเป็นแผล"
+                    data-image="Img/abdominal-pain.png">
+                    <img src="Img/abdominal-pain.png" alt="ปวดท้อง">
+                    <p>ปวดท้อง</p>
+                </li>
+                <li class="home-item"
+                    data-description="เมื่อเครียด กล้ามเนื้อในร่างกายมักเกิดการเกร็งและตึง ส่งผลให้เกิดอาการปวดกล้ามเนื้อ โดยเฉพาะที่คอ บ่า ไหล่ และหลัง"
+                    data-image="Img/muscle-pain.png">
+                    <img src="Img/muscle-pain.png" alt="ปวดกล้ามเนื้อ">
+                    <p>ปวดกล้ามเนื้อ</p>
+                </li>
+                <li class="home-item"
+                    data-description="ความเครียดสามารถกระตุ้นการทำงานของระบบประสาทอัตโนมัติ ทำให้หัวใจเต้นเร็วขึ้น เกิดความดันโลหิตสูง และอาจส่งผลให้รู้สึกกระวนกระวาย"
+                    data-image="Img/heartbeat.png">
+                    <img src="Img/heartbeat.png" alt="หัวใจเต้นเร็ว">
+                    <p>หัวใจเต้นเร็ว</p>
+                </li>
+                <li class="home-item"
+                    data-description="ความเครียดทำให้ร่างกายหลั่งฮอร์โมนคอร์ติซอลเพิ่มขึ้น ส่งผลให้รู้สึกตื่นเต้น กระสับกระส่ายและนอนไม่หลับ"
+                    data-image="Img/insomnia.png">
+                    <img src="Img/insomnia.png" alt="นอนไม่หลับ">
+                    <p>นอนไม่หลับ</p>
+                </li>
+                <li class="home-item"
+                    data-description="เมื่อเผชิญกับความเครียดบ่อยๆ ร่างกายจะใช้พลังงานในการตอบสนองต่อความเครียดมากกว่าปกติ ส่งผลให้รู้สึกเหนื่อยง่ายและหมดแรง"
+                    data-image="Img/weakness.png">
+                    <img src="Img/weakness.png" alt="เหนื่อยล้า">
+                    <p>เหนื่อยล้า</p>
+                </li>
+                <li class="home-item"
+                    data-description="ความเครียดมักทำให้เกิดความรู้สึกกังวล ไม่มั่นใจ และคิดมากเกี่ยวกับเรื่องต่างๆ ที่เกิดขึ้น หรือเรื่องที่ยังมาไม่ถึง"
+                    data-image="Img/stress (1).png">
+                    <img src="Img/stress (1).png" alt="วิตกกังวล">
+                    <p>วิตกกังวล</p>
+                </li>
+                <li class="home-item"
+                    data-description="มื่อเผชิญกับความเครียดเป็นระยะเวลานาน ความรู้สึกท้อแท้และหมดหวังอาจเกิดขึ้น ทำให้มีความเสี่ยงต่อการเกิดภาวะซึมเศร้า"
+                    data-image="Img/depression.png">
+                    <img src="Img/depression.png" alt="ซึมเศร้า">
+                    <p>ซึมเศร้า</p>
+                </li>
+                <li class="home-item"
+                    data-description="ความเครียดส่งผลให้สมองเกิดการตอบสนองอย่างรวดเร็ว อาจทำให้รู้สึกหงุดหงิด โมโหง่าย และไม่สามารถควบคุมอารมณ์ได้ดี"
+                    data-image="Img/irritable.png">
+                    <img src="Img/irritable.png" alt="หงุดหงิดง่าย">
+                    <p>หงุดหงิดง่าย</p>
+                </li>
+                <li class="home-item"
+                    data-description="ความเครียดสามารถทำให้มุมมองต่อสิ่งต่างๆ เปลี่ยนไป โดยมักจะคิดในแง่ลบหรือมองทุกอย่างเป็นปัญหา ซึ่งส่งผลให้สุขภาพจิตย่ำแย่ลง"
+                    data-image="Img/negative-thinking.png">
+                    <img src="Img/negative-thinking.png" alt="คิดในแง่ลบ">
+                    <p>คิดในแง่ลบ</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="home-description" class="home-description"></div>
+    </div>
+    <!-- อาการความเครียด  End -->
+
+
+    <!-- data  -->
+    <div class="vg-page page-funfact" style="background-image: url(Img/2.jpg) ;">
+        <div class="container">
+            <div class="row section-counter">
+                <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
+                    <h1 class="number">28.8M+</h1>
+                    <span>จำนวนผู้ที่มีภาวะการรับประทาน
+                        อาหารที่ผิดปกติ</span>
+                </div>
+                <div class="col-md-6 col-lg-3 py-4 wow fadeIn">
+                    <h1 class="number">≈17.28M+</h1>
+                    <span>จำนวนผู้ที่รักษาหายจากภาวะ
+                        การรับประทานอาหารที่ผิดปกติ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- data End -->
+    <!-- วิธีบำบัดดูแลรักษาความเครียด  Start -->
+    <div class="Home">
+        <!-- คำกำลังใจ Start -->
+        <div class="fade-in">
+            <div class="Home-Intro">
+                <h1>"คุณไม่ได้อยู่คนเดียว มีคนมากมายที่พร้อมให้กำลังใจ และ อยู่เคียงข้างคุณเสมอ"</h2>
+            </div>
+        </div>
+        <!-- คำกำลังใจ End -->
+        <div class="fade-in">
+            <h2>วิธีบำบัดดูแลรักษาความเครียด </h2>
+            <ul class="list-Home">
+                <li class="home-treat-item"
+                    data-description="การเขียนบันทึกช่วยให้ระบายความเครียดและความรู้สึกที่กดดันออกมา บันทึกสิ่งที่คุณรู้สึกในวันนั้น จะช่วยให้คุณรับมือกับอารมณ์และความคิดที่หลากหลายได้ดียิ่งขึ้น"
+                    data-image="Img/journaling.png">
+                    <img src="Img/journaling.png" alt="เขียนบันทึกความรู้สึก">
+                    <p>เขียนบันทึกความรู้สึก</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การรับประทานอาหารที่มีสารอาหารครบถ้วนจะช่วยเสริมสร้างร่างกายและจิตใจให้แข็งแรง เลือกรับประทานอาหารที่มีวิตามินและแร่ธาตุ เพื่อช่วยในการฟื้นฟูร่างกายจากความเครียด"
+                    data-image="Img/healthy-food.png">
+                    <img src="Img/healthy-food.png" alt="กินอาหาร">
+                    <p>กินอาหาร</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การหายใจลึกๆ ช่วยลดอัตราการเต้นของหัวใจและทำให้สมองผ่อนคลาย ฝึกหายใจเข้า-ออกลึกๆ เพื่อช่วยคลายความเครียด"
+                    data-image="Img/breath.png">
+                    <img src="Img/breath.png" alt="หายใจลึกๆ">
+                    <p>หายใจลึกๆ</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การฝึกคิดบวกช่วยให้เรามองโลกในแง่ดีและลดความเครียดจากสถานการณ์ที่เกิดขึ้น พยายามหามุมมองที่ดีจากสถานการณ์ที่เครียด"
+                    data-image="Img/positive-thinking.png">
+                    <img src="Img/positive-thinking.png" alt="ฝึกคิดบวก">
+                    <p>ฝึกคิดบวก</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การนั่งสมาธิช่วยให้จิตใจสงบและลดความตึงเครียด ฝึกนั่งสมาธิทุกวันเพื่อฝึกสติและสร้างสมาธิ"
+                    data-image="Img/yoga.png">
+                    <img src="Img/yoga.png" alt="นั้งสมาธิ">
+                    <p>นั้งสมาธิ</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การทำกิจกรรมที่สนุกสนาน เช่น วาดรูป อ่านหนังสือ หรือทำสวน ช่วยให้จิตใจได้รับการผ่อนคลายและเติมพลังให้ตัวเอง"
+                    data-image="Img/hobbies.png">
+                    <img src="Img/hobbies.png" alt="ทำกิจกรรมที่ชอบ">
+                    <p>ทำกิจกรรมที่ชอบ</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การพูดคุยกับเพื่อนหรือคนในครอบครัวสามารถช่วยระบายความรู้สึกและรับคำแนะนำที่ดีในการรับมือกับความเครียด"
+                    data-image="Img/meeting.png">
+                    <img src="Img/meeting.png" alt="พูดคุยกับคนใกล้ชิด">
+                    <p>พูดคุยกับคนใกล้ชิด</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การดื่มน้ำช่วยให้ร่างกายและสมองทำงานได้ดีขึ้น และยังช่วยให้ร่างกายฟื้นฟูจากความเครียด"
+                    data-image="Img/drink-water.png">
+                    <img src="Img/drink-water.png" alt="ดื่มน้ำ">
+                    <p>ดื่มน้ำ</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="ฟังเพลงที่ทำให้รู้สึกผ่อนคลายหรือเพลงที่ชอบช่วยลดความเครียดได้มาก เพลงที่มีจังหวะช้าและเสียงธรรมชาติจะช่วยให้คุณรู้สึกสงบ"
+                    data-image="Img/music-note.png">
+                    <img src="Img/music-note.png" alt="ฟังเพลง">
+                    <p>ฟังเพลง</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การเดินเล่นในที่เงียบสงบช่วยให้คุณได้ผ่อนคลายทั้งร่างกายและจิตใจ ลดความตึงเครียดและเพิ่มการไหลเวียนของเลือด"
+                    data-image="Img/walking-man.png">
+                    <img src="Img/walking-man.png" alt="เดินเล่น">
+                    <p>เดินเล่น</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การนอนหลับเพียงพอช่วยให้ร่างกายฟื้นฟูจากความเครียดและทำให้สมองและร่างกายมีพลังในการรับมือกับความท้าทายในวันถัดไป"
+                    data-image="Img/sleeping.png">
+                    <img src="Img/sleeping.png" alt="นอนหลับ">
+                    <p>นอนหลับ</p>
+                </li>
+                <li class="home-treat-item"
+                    data-description="การยืดเหยียดร่างกายช่วยคลายความตึงเครียดที่สะสมในกล้ามเนื้อ ช่วยเพิ่มความยืดหยุ่นและความรู้สึกผ่อนคลาย"
+                    data-image="Img/exercising.png">
+                    <img src="Img/exercising.png" alt="ยืดเหยียดร่างกาย">
+                    <p>ยืดเหยียดร่างกาย</p>
+                </li>
+            </ul>
+        </div>
+        <div id="home-treat" class="home-treat"></div>
+    </div>
+    <!-- อาการความเครียด  End -->
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Left Section -->
+                <div class="col-md-4 footer-item">
+                    <a href="index.html" class="p-0">
+                        <img src="Img/LOGO.png" alt="Logo" style="height: 60px;">
+                        <h3 class="text-white"><i class="fab fa-slack me-3"></i> EASEEAT</h3>
+                    </a>
+                    <p class="text-white mb-4">เว็บไซด์ให้การสนับสนุนผู้ที่มีปัญหาในเรื่องอาหารและสุขภาพจิต
+                        โดยนักโภชนาการและจิตแพทย์</p>
+                </div>
+
+                <!-- Footer Center Section -->
+                <div class="col-md-4 footer-item text-center">
+                    <h4 class="text-white mb-4">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="InstructionsForm.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ประเมิน</a></li>
+                        <li><a href="community.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ชุมชน</a></li>
+                        <li><a href="Nutrients.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                โภชนาการ</a></li>
+                        <li><a href="#" class="text-white"><i class="fas fa-angle-right me-2"></i> ปรึกษาส่วนตัว</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Right Section -->
+                <div class="col-md-4 footer-item text-end">
+                    <h4 class="text-white mb-4">Follow Us</h4>
+                    <ul class="list-unstyled d-flex justify-content-end">
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-white mb-0">© 2024 EaseEat. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <script src="Js/Home.js"></script>
+    <script src="Js/animation.js"></script>
+    <script type="module" src="Js/auth.js"></script>
+
+
+
+
+</body>
+
+</html>

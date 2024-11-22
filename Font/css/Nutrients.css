@@ -1,0 +1,248 @@
+/* ------------------------------------------ Banner Section ------------------------------------------------------------------------ */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 670px;
+    background: url('../Img/nutritionbanner.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner::after {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #AAB396;
+    opacity: 0.75;
+    z-index: 1;
+}
+
+.banner h1 {
+    font-size: 128px;
+    color: white;
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+/* ------------------------------------------ Nutrients Section ------------------------------------------------------------------------ */
+.Nutrients {
+    padding: 50px 20px;
+    color: #333;
+    text-align: center;
+    border-radius: 8px;
+    margin: 30px auto;
+    width: 80%;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Nutrients h1, .Nutrients h2 {
+    font-size: 50px;
+    color: #616E44;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.Nutrients p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 70px;
+}
+
+.Nutrients button {
+    padding: 12px 20px;
+    width: 270px;
+    height: 70px;
+    background-color: #AAB396;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); 
+}
+
+.Nutrients button a {
+    color: white;
+    text-decoration: none;
+}
+
+.Nutrients button:hover {
+    background-color: #73854C;
+}
+
+/* ------------------------------------------ Foods for Mental Health Section ----------------------------------------------------------- */
+.Foods-for-Mental-Health {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* จัดตำแหน่งเนื้อหาในแนวตั้งให้ตรงกลาง */
+    align-items: center; /* จัดตำแหน่งเนื้อหาในแนวนอนให้ตรงกลาง */
+    padding: 200px ;
+    text-align: center;
+    background-color: #FFF8E8;
+    width: 100%;
+    min-height: 100vh; 
+}
+
+
+.Foods-for-Mental-Health h2 {
+    font-size: 32px;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+ul.list-Foods {
+    display: grid;
+    grid-template-columns: repeat(5, 215px);
+    gap: 20px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+li.food-item {
+    background-color: #D5D5BF;
+    width: 215px;
+    height: 215px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.food-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.food-item img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.food-item p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    margin-top: 10px;
+}
+
+
+.food-description {
+    display: none; /* เริ่มต้นซ่อนกล่องคำอธิบาย */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 100px auto;
+    font-size: 24px;
+    color: #000000;
+    display: flex;
+    flex-direction: column; /* เรียงองค์ประกอบเป็นคอลัมน์ */
+    align-items: center; /* จัดกึ่งกลางแนวนอน */
+    justify-content: center; /* จัดกึ่งกลางแนวตั้ง */
+    flex-wrap: wrap;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease;
+    opacity: 0;
+    border: 2px solid transparent;
+}
+
+.food-description img {
+    max-width: 100px;
+    margin-bottom: 15px; /* เพิ่มระยะห่างระหว่างรูปและข้อความ */
+    border-radius: 8px;
+}
+
+/* ใช้แสดงคำอธิบายเมื่อมีคลาส show */
+.food-description.show {
+    display: flex; /* เปลี่ยนจาก display: none เป็น display: flex */
+    opacity: 1; /* ค่อยๆ แสดงคำอธิบาย */
+    border-color: #5E4B3C; /* สีของขอบเมื่อแสดง */
+}
+
+
+/* ------------------------------------------ Responsive Design ------------------------------------------------------------------------ */
+
+@media (max-width: 1200px) {
+    ul.list-Foods {
+        grid-template-columns: repeat(4, 215px); /* แสดงผล 4 รายการในแต่ละแถว */
+    }
+}
+
+@media (max-width: 992px) {
+    ul.list-Foods {
+        grid-template-columns: repeat(3, 215px); /* แสดงผล 3 รายการในแต่ละแถว */
+    }
+
+    .Nutrients h1, .Nutrients h2 {
+        font-size: 40px; /* ปรับขนาดฟอนต์ */
+    }
+
+    .Nutrients p {
+        font-size: 18px;
+    }
+
+    .food-description {
+        max-width: 80%; /* ให้กล่องคำอธิบายกว้างขึ้น */
+    }
+}
+
+@media (max-width: 768px) {
+    ul.list-Foods {
+        grid-template-columns: repeat(2, 215px); /* แสดงผล 2 รายการในแต่ละแถว */
+    }
+
+    .Nutrients {
+        width: 90%; /* เพิ่มความกว้างของ Nutrients */
+    }
+
+    .food-description {
+        max-width: 90%; /* ให้กล่องคำอธิบายกว้างขึ้น */
+        padding: 15px;
+    }
+
+    .food-description img {
+        max-width: 80px; /* ลดขนาดรูปภาพ */
+    }
+
+    .food-description p {
+        font-size: 16px; /* ลดขนาดฟอนต์ */
+    }
+}
+
+@media (max-width: 576px) {
+    ul.list-Foods {
+        grid-template-columns: repeat(1, 215px); /* แสดงผล 1 รายการในแต่ละแถว */
+    }
+
+    .Nutrients h1, .Nutrients h2 {
+        font-size: 32px; /* ปรับขนาดฟอนต์ */
+    }
+
+    .food-description {
+        padding: 10px; /* ลดขนาด padding สำหรับมือถือ */
+    }
+
+    .food-description p {
+        font-size: 14px; /* ลดขนาดฟอนต์ */
+    }
+}

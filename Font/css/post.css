@@ -1,0 +1,156 @@
+/* Container styling */
+.post-container {
+    min-height: 100vh; /* Ensures it covers full viewport height */
+    background-color: #F6F9FE;
+    padding: 20px;
+}
+
+.post-detail {
+    max-width: 1500px;
+    margin: 40px auto;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+/* Post Header Styling */
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 20px;
+}
+.post-header h2{
+    font-size: 30px;
+    text-align: start;
+    padding-left: 50px;
+}
+
+/* Status Dot Styling */
+.status-dot {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+   
+    vertical-align: middle;
+    padding-left: 30px;
+}
+
+/* Colors for different stress levels */
+.stress-low .status-dot {
+    background-color: #32CD32; /* Green */
+}
+
+.stress-medium .status-dot {
+    background-color: #FFD700; /* Orange */
+}
+
+.stress-high .status-dot {
+    background-color: #FFA500; /* Red-Orange */
+}
+
+.stress-very-high .status-dot {
+    background-color: #FF0000; /* Red */
+}
+
+/* Title Styling */
+.post-title {
+    font-size: 24px;
+    color: #4A628A;
+    margin: 0;
+    text-align: center;
+}
+
+/* Category Styling */
+.post-category {
+    font-size: 20px;
+    color: #4A628A;
+    text-align: start;
+    margin-top: 5px;
+    padding-left: 80px;
+    
+}
+
+.post-category p{
+    
+    border: 2px solid #4A628A;
+}
+
+/* Content Styling */
+#postFullContent {
+    font-size: 20px;
+    color: #333;
+    margin-top: 40px;
+    text-align: left; 
+    padding: 0 20px; 
+}
+
+/* Comments Section */
+.comments-section {
+    max-width: 1520px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 175px;
+    text-align: left; 
+}
+
+.comments-section h3 {
+    font-size: 24px;
+    color: #4A628A;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.comments-list {
+    width: 100%; 
+    margin-bottom: 20px;
+    padding-right: 10px; 
+    width: 1500px;
+}
+
+.comment-item {
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    color: #333;
+    background-color: #fff;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#commentInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px;
+    text-align: left; 
+    font-size: 15px;
+}
+
+.comment-form button {
+    align-self: flex-end;
+    padding: 8px 16px;
+    border: none;
+    background-color: #4A628A;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comment-form button:hover {
+    background-color: #364a67;
+}

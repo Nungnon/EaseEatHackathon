@@ -1,0 +1,111 @@
+/* Login Container */
+.login-container {
+    background: #F6F9FE; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Login Box */
+.login-box {
+    max-width: 700px; 
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px; /* เพิ่ม Padding */
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Heading */
+.login-box h2 {
+    font-size: 2.5em; 
+    margin-bottom: 40px;
+    color: #4A628A;
+    font-weight: bold;
+}
+
+/* Input Fields */
+.input-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px; 
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 15px 20px; 
+    background-color: #f9f9f9;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.input-field input {
+    border: none;
+    outline: none;
+    background: none;
+    flex: 1;
+    padding: 15px; /* เพิ่ม Padding ด้านใน */
+    font-size: 1.3em; /* เพิ่มขนาดข้อความในช่องกรอก */
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Icons */
+.icon {
+    margin-right: 10px;
+    color: #4A628A;
+    font-size: 1.8em; /* เพิ่มขนาดไอคอน */
+}
+
+/* Button */
+.login-button {
+    width: 100%; /* ให้ปุ่มเต็มกล่อง */
+    padding: 15px; /* เพิ่มขนาดของปุ่ม */
+    font-size: 1.5em; /* เพิ่มขนาดฟอนต์ในปุ่ม */
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #4A628A, #6E85B7);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-button:hover {
+    transform: translateY(-3px); /* ดันปุ่มขึ้นเล็กน้อย */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Options */
+.options {
+    margin-top: 30px;
+    font-size: 1.2em; /* เพิ่มขนาดข้อความในส่วนลิงก์ */
+    color: #4A628A;
+}
+
+.options a {
+    color: #6E85B7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-box {
+    animation: fadeIn 1s ease-out;
+}

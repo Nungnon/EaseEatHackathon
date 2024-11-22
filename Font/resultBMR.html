@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EaseEat</title>
+
+    <!-- เพิ่ม favicon -->
+    <link rel="icon" href="Img/LOGO.png" type="image/x-icon">
+    <!-- เพิ่มฟอนต์ Lato Bold จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <!-- เพิ่ม Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- เพิ่มสไตล์ CSS -->
+    <link href="css/Header_Footer.css" rel="stylesheet">
+    <link href="css/BMR-calculato.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="Home.html">
+                    <img src="Img/LOGO.png" alt="Logo">
+                    <h1>EASEEAT</h1>
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="Home.html" class="nav-item nav-link active">หน้าหลัก</a>
+                        <a href="InstructionsForm.html" class="nav-item nav-link">ประเมิน</a>
+                        <a href="community.html" class="nav-item nav-link">ชุมชน</a>
+                        <a href="Nutrients.html" class="nav-item nav-link">โภชนาการ</a>
+                        <a id="nav-login" href="login.html" class="nav-item nav-link">Login</a>
+                        <a id="logout" href="#" class="nav-item nav-link" style="display: none;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+    <div class="BMR">
+        <div class="result-container">
+            <h2><i class="fas fa-calculator"></i> ผลลัพธ์การคำนวณ</h2>
+            <p><i class="fas fa-fire"></i> ค่า <strong>BMR</strong> ของคุณคือ:
+                <span id="bmrResult">กำลังโหลด...</span>
+            </p>
+            <p><i class="fas fa-burn"></i> ค่า <strong>TDEE</strong> ของคุณคือ:
+                <span id="tdeeResult">กำลังโหลด...</span>
+            </p>
+            <p><i class="fas fa-heartbeat"></i> แนะนำสำหรับการรักษาน้ำหนัก:
+                <span id="calorieMaintainResult">กำลังโหลด...</span>
+            </p>
+            <p><i class="fas fa-plus-circle"></i> แนะนำสำหรับการเพิ่มน้ำหนัก:
+                <span id="calorieGainResult">กำลังโหลด...</span>
+            </p>
+
+            <p id="adviceResult">กำลังโหลดคำแนะนำ...</p> <!-- เพิ่มสำหรับ advice -->
+            <p id="nutritionAdvice">กำลังโหลดคำแนะนำ...</p> <!-- สำหรับ nutritionAdvice -->
+
+
+            <button><a href="Nutrients.html#Foods-for-Mental-Health" class="Food">ดูอาหารบำรุงสุขภาพจิต</a></button>
+            <button><a href="AiFood.html" class="Food">คำนวนโภชนาการ</a></button>
+
+        </div>
+    </div>
+
+    <script>
+
+        const userId = localStorage.getItem("userId");
+
+        if (!userId) {
+            displayError("ไม่พบข้อมูลผู้ใช้ กรุณาล็อกอินใหม่");
+        } else {
+            fetch(`http://localhost:8080/api/users/${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const latestStrain = data.strainHistory[0];  // Get the latest strain record
+                    const stressLevel = latestStrain.levels;  // Get the latest stress level
+
+                    // ดึงค่า TDEE จาก LocalStorage
+                    const tdee = localStorage.getItem('tdee');
+
+                    if (tdee && stressLevel) {
+                        // เรียกใช้ฟังก์ชัน generateAdvice
+                        const advice = generateAdvice(parseFloat(tdee), stressLevel);
+
+                        // แสดงคำแนะนำ
+                        const adviceElement = document.getElementById("nutrition-advice");
+                        if (adviceElement) {
+                            adviceElement.textContent = advice;
+                        }
+
+                        // บันทึกคำแนะนำลงใน LocalStorage
+                        localStorage.setItem('nutritionAdvice', advice);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching user profile:", error);
+                    displayError("ไม่สามารถดึงข้อมูลได้: " + error.message);
+                });
+        }
+        function generateAdvice(tdee, stressLevel) {
+            let advice = "";
+            let nutritionAdvice = "";
+
+            // กรณี TDEE ต่ำและความเครียดสูง
+            if (tdee < 1800 && stressLevel === "ความเครียดสูง") {
+                advice = "คุณมีระดับความเครียดสูงอาจทำให้รู้สึกเครียด และ วิตกกังวลได้ง่าย ควรให้ความสำคัญกับการทำกิจกรรมที่ช่วยผ่อนคลายจิตใจ เช่น การฝึกสมาธิหรือการเดินเล่นในธรรมชาติ ซึ่งจะช่วยลดความเครียดและเพิ่มความสงบให้กับจิตใจ";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม ควรทานอาหารอาหารที่มีโปรตีนสูง เช่น ปลาแซลมอน ไก่ หรือไข่ จะช่วยเสริมสร้างและฟื้นฟูร่างกายหลังจากการใช้พลังงานไปมากในช่วงที่เครียด อีกทั้งไขมันดีจากอะโวคาโดและถั่วยังช่วยบำรุงสมองและระบบประสาท ทำให้คุณรู้สึกผ่อนคลายและมีสมาธิในการทำงาน";
+            }
+            // กรณี TDEE ต่ำและความเครียดปานกลาง
+            else if (tdee < 1800 && stressLevel === "ความเครียดปานกลาง") {
+                advice = "คุณมีระดับความเครียดในระดับปานกลาง การทำกิจกรรมเบาๆ หรือการฟังเพลงบำบัดจิตใจ สามารถลดลงได้โดยการฝึกการหายใจลึกๆ เช่น การเดินหรือการทำโยคะสามารถช่วยบรรเทาความเครียดได้ดี";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม ควรทานโปรตีนจากแหล่งที่ดี เช่น ถั่ว ไข่ หรือปลา เพราะโปรตีนจะช่วยบำรุงร่างกายและซ่อมแซมเซลล์ที่เสียหายจากการทำกิจกรรมต่างๆ และการทานผักสดกับผลไม้จะช่วยเสริมวิตามินและแร่ธาตุที่จำเป็นในการช่วยฟื้นฟูระบบภูมิคุ้มกันและจิตใจ";
+            }
+            // กรณี TDEE ต่ำและความเครียดสูงมาก
+            else if (tdee < 1800 && stressLevel === "ความเครียดสูงมาก") {
+                advice = "คุณมีระดับความเครียดสูงมาก การมีสมาธิและการฝึกหายใจสามารถช่วยคลายความวิตกกังวลได้ ควรหาเวลาเพื่อพักผ่อนและทำกิจกรรมที่ช่วยให้จิตใจสงบ เช่น การทำสมาธิ หรือการฟังเพลงผ่อนคลาย";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม การเลือกอาหารที่มีโอเมก้า 3 เช่น ปลาแซลมอน, วอลนัท และเมล็ดแฟลกซ์ จะช่วยบำรุงสมองและช่วยลดความวิตกกังวลได้ดี โอเมก้า 3 ยังช่วยในเรื่องของการปรับสมดุลของฮอร์โมนในร่างกาย ซึ่งส่งผลดีต่อสุขภาพจิตในระยะยาว";
+            }
+            // กรณี TDEE ต่ำและความเครียดต่ำ
+            else if (tdee < 1800 && stressLevel === "ความเครียดต่ำ") {
+                advice = "คุณมีระดับมีความเครียดต่ำ และ ได้รับพลังงานไม่เพียงพอ ควรให้ความสำคัญกับการเติมเต็มพลังงานในร่างกาย เช่น การทำกิจกรรมที่สนุกและมีประโยชน์ เช่น การฝึกโยคะ หรือการทำสมาธิเพื่อรักษาสมดุลระหว่างจิตใจและร่างกาย";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม อาหารที่มีไขมันดีจากน้ำมันมะกอกหรืออะโวคาโด จะช่วยให้ร่างกายได้รับกรดไขมันที่จำเป็น ซึ่งช่วยบำรุงสมองและลดความเครียดได้ในระยะยาว การเลือกทานโปรตีนจากถั่วและไข่จะช่วยเสริมสร้างพลังงานและซ่อมแซมเซลล์ในร่างกาย";
+            }
+
+            // กรณี TDEE ปานกลางและความเครียดสูง
+            else if (tdee >= 1800 && tdee <= 2500 && stressLevel === "ความเครียดสูง") {
+                advice = "คุณมีระดับความเครียดสูงอาจทำให้รู้สึกเครียด และ วิตกกังวลได้ง่าย ควรให้ความสำคัญกับการทำกิจกรรมที่ช่วยผ่อนคลายจิตใจ เช่น การฝึกสมาธิหรือการเดินเล่นในธรรมชาติ ซึ่งจะช่วยลดความเครียดและเพิ่มความสงบให้กับจิตใจ";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม ควรทานอาหารที่เหมาะ เช่น ผักใบเขียว ข้าวกล้อง และโปรตีนจากแหล่งที่ดี เช่น ปลาแซลมอนและไก่ ซึ่งจะช่วยให้พลังงานคงที่และสนับสนุนการฟื้นฟูจิตใจ";
+            }
+            // กรณี TDEE ปานกลางและความเครียดปานกลาง
+            else if (tdee >= 1800 && tdee <= 2500 && stressLevel === "ความเครียดปานกลาง") {
+                advice = "ความเครียดปานกลางสามารถลดลงได้ด้วยการทำกิจกรรมที่สงบจิตใจ เช่น การฝึกสมาธิ หรือการนั่งพักในที่เงียบๆ เพื่อคลายความเครียดและปรับสมดุลของร่างกาย";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม ควรทานอาหารที่หลากหลาย เช่น ข้าวโอ๊ต, ปลาแซลมอน, ผักใบเขียว และผลไม้ที่เต็มไปด้วยวิตามินเพื่อเพิ่มความสงบจิตใจ";
+            }
+            // กรณี TDEE ปานกลางและความเครียดสูงมาก
+            else if (tdee >= 1800 && tdee <= 2500 && stressLevel === "ความเครียดสูงมาก") {
+                advice = "คุณได้รับพลังงานที่เพียงพอแล้ว ควรให้เวลาพักผ่อนจากการทำงานและทำกิจกรรมที่ผ่อนคลายจิตใจ เช่น การนั่งสมาธิ หรือการฟังเพลงที่ทำให้จิตใจสงบ";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม ควรทานอาหารที่อาหารที่มีโอเมก้า 3 เช่น ปลาแซลมอนและผักใบเขียวสามารถช่วยลดความวิตกกังวลและเสริมสร้างสุขภาพจิต";
+            }
+            // กรณี TDEE ปานกลางและความเครียดต่ำ
+            else if (tdee >= 1800 && tdee <= 2500 && stressLevel === "ความเครียดต่ำ") {
+                advice = "คุณได้รับพลังงานที่เหมาะสม ควรรักษาสมดุลในชีวิตด้วยการออกกำลังกายอย่างสม่ำเสมอและการทานอาหารที่ช่วยเสริมสร้างสุขภาพจิตที่ดี เช่น การทำโยคะหรือการเดินเล่นเพื่อรักษาความสงบในจิตใจ";
+                nutritionAdvice = "ในด้านของโภชนาการที่เหมาะสม ควรทานอาหารที่ครบทั้ง 5 หมู่ รวมทั้งไขมันดีจากน้ำมันมะกอกและถั่ว โปรตีนจากเนื้อสัตว์ไม่ติดมัน และผักเพื่อเสริมพลังงานและรักษาความสมดุล";
+            }
+
+            // กรณี TDEE สูงและความเครียดสูง
+            else if (tdee > 2500 && stressLevel === "ความเครียดสูง") {
+                advice = "คุณมีระดับความเครียดสูงอาจทำให้รู้สึกเครียด และ วิตกกังวลได้ง่าย ควรให้ความสำคัญกับการทำกิจกรรมที่ช่วยผ่อนคลายจิตใจ เช่น การฝึกสมาธิหรือการเดินเล่นในธรรมชาติ ซึ่งจะช่วยลดความเครียดและเพิ่มความสงบให้กับจิตใจ";
+                nutritionAdvice = "อาหารที่มีโอเมก้า 3 เช่น ปลาแซลมอน วอลนัท และเมล็ดแฟลกซ์จะช่วยบำรุงสมองและทำให้จิตใจสงบ";
+            }
+            // กรณี TDEE สูงและความเครียดปานกลาง
+            else if (tdee > 2500 && stressLevel === "ความเครียดปานกลาง") {
+                advice = "คุณมีพลังงานที่เพียงพอ ควรทานอาหารที่หลากหลายและทำกิจกรรมที่ช่วยผ่อนคลายจิตใจ เช่น การทำโยคะหรือการเดินทางในธรรมชาติ เพื่อให้จิตใจสงบ";
+                nutritionAdvice = "ทานอาหารที่สมดุลและมีคุณค่าทางโภชนาการ เช่น ข้าวกล้อง ผัก ผลไม้ โปรตีนจากเนื้อสัตว์ไม่ติดมัน";
+            }
+            // กรณี TDEE สูงและความเครียดสูงมาก
+            else if (tdee > 2500 && stressLevel === "ความเครียดสูงมาก") {
+                advice = "เมื่อความเครียดสูงมาก การผ่อนคลายจิตใจเป็นสิ่งสำคัญ ควรทำกิจกรรมที่ช่วยบำบัดจิตใจ เช่น การทำสมาธิหรือการออกกำลังกายที่ช่วยคลายเครียด";
+                nutritionAdvice = "เน้นอาหารที่ช่วยบำรุงสมองและจิตใจ เช่น ปลาแซลมอน เมล็ดแฟลกซ์ และอาหารที่มีวิตามิน B และ C เช่น ส้มและผักใบเขียว";
+            }
+            // กรณี TDEE สูงและความเครียดต่ำ
+            else if (tdee > 2500 && stressLevel === "ความเครียดต่ำ") {
+                advice = "คุณได้รับพลังงานที่เพียงพอแล้ว ควรรักษาการทานอาหารที่สมดุลและการออกกำลังกายที่ช่วยให้จิตใจสงบและสมดุล";
+                nutritionAdvice = "การทานอาหารที่ครบ 5 หมู่ และการออกกำลังกายเบาๆ เช่น การเดินหรือการทำโยคะ จะช่วยรักษาความสมดุลของทั้งร่างกายและจิตใจ";
+            }
+
+            // คำแนะนำทั่วไป
+            if (!advice) {
+                advice = "หากคุณรู้สึกว่าความเครียดหรือการทานอาหารไม่สมดุล ควรปรึกษาผู้เชี่ยวชาญด้านสุขภาพจิตเพื่อการดูแลที่เหมาะสม";
+            }
+
+            return { advice, nutritionAdvice };
+        }
+        const bmr = localStorage.getItem('bmr') || "ไม่พบข้อมูล";
+        const tdee = localStorage.getItem('tdee') || "ไม่พบข้อมูล";
+        const calorieForMaintenance = localStorage.getItem('calorieForMaintenance') || "ไม่พบข้อมูล";
+        const calorieForWeightGain = localStorage.getItem('calorieForWeightGain') || "ไม่พบข้อมูล";
+
+        console.log("BMR:", bmr);
+        console.log("TDEE:", tdee);
+        console.log("Maintenance Calories:", calorieForMaintenance);
+        console.log("Weight Gain Calories:", calorieForWeightGain);
+
+        if (bmr === "ไม่พบข้อมูล" || tdee === "ไม่พบข้อมูล") {
+            Swal.fire({
+                title: "ไม่พบข้อมูล",
+                text: "กรุณากลับไปที่หน้าคำนวณเพื่อกรอกข้อมูล",
+                icon: "error",
+                confirmButtonText: "ตกลง",
+            }).then(() => {
+                window.location.href = "BMR-calculato.html";
+            });
+        } else {
+            document.getElementById("bmrResult").textContent = `${bmr} แคลอรี่/วัน`;
+            document.getElementById("tdeeResult").textContent = `${tdee} แคลอรี่/วัน`;
+            document.getElementById("calorieMaintainResult").textContent = `${calorieForMaintenance} แคลอรี่/วัน`;
+            document.getElementById("calorieGainResult").textContent = `${calorieForWeightGain} แคลอรี่/วัน`;
+        }
+
+        const stressLevel = "ความเครียดสูง";  // ตัวอย่างระดับความเครียด
+
+        // สร้างคำแนะนำตาม TDEE และระดับความเครียด
+        const adviceData = generateAdvice(parseFloat(tdee), stressLevel);
+
+        // แสดงคำแนะนำ
+        document.getElementById('nutritionAdvice').textContent = adviceData.nutritionAdvice;
+        document.getElementById('adviceResult').textContent = adviceData.advice; // เพิ่มการแสดงคำแนะนำที่นี่
+    </script>
+
+
+
+
+
+
+    <!-- Step End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Left Section -->
+                <div class="col-md-4 footer-item">
+                    <a href="index.html" class="p-0">
+                        <img src="Img/LOGO.png" alt="Logo" style="height: 60px;">
+                        <h3 class="text-white"><i class="fab fa-slack me-3"></i> EASEEAT</h3>
+                    </a>
+                    <p class="text-white mb-4">เว็บไซด์ให้การสนับสนุนผู้ที่มีปัญหาในเรื่องอาหารและสุขภาพจิต
+                        โดยนักโภชนาการและจิตแพทย์</p>
+                </div>
+
+                <!-- Footer Center Section -->
+                <div class="col-md-4 footer-item text-center">
+                    <h4 class="text-white mb-4">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="InstructionsForm.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ประเมิน</a></li>
+                        <li><a href="community.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ชุมชน</a></li>
+                        <li><a href="Nutrients.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                โภชนาการ</a></li>
+                        <li><a href="#" class="text-white"><i class="fas fa-angle-right me-2"></i> ปรึกษาส่วนตัว</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Right Section -->
+                <div class="col-md-4 footer-item text-end">
+                    <h4 class="text-white mb-4">Follow Us</h4>
+                    <ul class="list-unstyled d-flex justify-content-end">
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-white mb-0">© 2024 EaseEat. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="Js/BMR.js"></script>
+    <script type="module" src="Js/auth.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EaseEat</title>
+
+    <!-- เพิ่ม favicon -->
+    <link rel="icon" href="Img/LOGO.png" type="image/x-icon">
+    <!-- เพิ่มฟอนต์ Lato Bold จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <!-- เพิ่ม Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- เพิ่มสไตล์ CSS -->
+    <link href="css/Header_Footer.css" rel="stylesheet">
+    <link href="css/Form.css" rel="stylesheet">
+
+    <!-- Add SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+
+
+
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="Home.html">
+                    <img src="Img/LOGO.png" alt="Logo">
+                    <h1>EASEEAT</h1>
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="Home.html" class="nav-item nav-link active">หน้าหลัก</a>
+                        <a href="InstructionsForm.html" class="nav-item nav-link">ประเมิน</a>
+                        <a href="community.html" class="nav-item nav-link">ชุมชน</a>
+                        <a href="Nutrients.html" class="nav-item nav-link">โภชนาการ</a>
+                        <a id="nav-login" href="login.html" class="nav-item nav-link">Login</a>
+                        <a id="logout" href="#" class="nav-item nav-link" style="display: none;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+
+    <!-- Step Start -->
+    <div class="Step">
+        <div class="Formcontainer">
+            <h1>DASS-21 แบบประเมินความเครียด</h1>
+            <form id="dassForm">
+                <div class="question-group">
+                    <label>1)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกว่ายากที่จะผ่อนคลายอารมณ์</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(0, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(0, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(0, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(0, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>2)สัปดาห์ที่ผ่านมา ข้าพเจ้าทราบว่าข้าพเจ้ามีอาการปากแห้ง</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(1, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(1, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(1, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(1, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>3)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกไม่ดีขึ้นเลย</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(2, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(2, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(2, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(2, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>4)สัปดาห์ที่ผ่านมา ข้าพเจ้ามีอาการหายใจลำบาก</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(3, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(3, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(3, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(3, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>5)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกทำกิจกรรมด้วยตนเองได้ค่อนข้างลำบาก</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(4, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(4, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(4, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(4, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>6)สัปดาห์ที่ผ่านมา ข้าพเจ้าเริ่มมีปฏิกิริยาตอบสนองต่อสิ่งต่าง ๆ มากเกินไป</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(5, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(5, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(5, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(5, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>7)สัปดาห์ที่ผ่านมา ข้าพเจ้ามีอาการสั่น</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(6, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(6, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(6, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(6, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>8)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกว่าข้าพเจ้าวิตกกังวลมาก</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(7, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(7, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(7, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(7, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>9)สัปดาห์ที่ผ่านมา
+                        ข้าพเจ้ารู้สึกกังวลกับเหตุการณ์ที่อาจทำให้ข้าพเจ้ารู้สึกตื่นกลัวและกระทำสิ่งใดโดยมิได้คิด</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(8, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(8, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(8, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(8, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>10)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกว่าข้าพเจ้าไม่มีเป้าหมาย</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(9, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(9, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(9, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(9, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>11)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกว่าข้าพเจ้ามีอาการกระวนกระวายใจ</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(10, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(10, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(10, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(10, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>12)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกไม่ผ่อนคลาย</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(11, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(11, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(11, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(11, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>13)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกจิตใจเหงาหงอยและเศร้าซึม</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(12, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(12, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(12, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(12, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>14)สัปดาห์ที่ผ่านมา
+                        ข้าพเจ้าทนไม่ได้กับภาวะใดก็ตามที่ทำให้ข้าพเจ้าไม่สามารถทำอะไรต่อจากที่ข้าพเจ้ากำลังกระทำอยู่</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(13, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(13, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(13, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(13, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>15)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกว่าข้าพเจ้ามีอาการคล้ายกับอาการหวั่นวิตก</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(14, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(14, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(14, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(14, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>16)สัปดาห์ที่ผ่านมา ข้าพเจ้าไม่รู้สึกกระตือรือร้นต่อสิ่งใด</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(15, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(15, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(15, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(15, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>17)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกเป็นคนไม่มีคุณค่า</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(16, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(16, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(16, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(16, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>18)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกว่าข้าพเจ้าค่อนข้างมีอารมณ์ฉุนเฉียวง่าย</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(17, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(17, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(17, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(17, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>19)สัปดาห์ที่ผ่านมา
+                        ข้าพเจ้ารับรู้ถึงการทำงานของหัวใจของข้าพเจ้าในตอนที่ข้าพเจ้าไม่ได้ออกแรง</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(18, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(18, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(18, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(18, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>20)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกกลัวโดยไม่มีเหตุผลใด ๆ</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(19, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(19, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(19, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(19, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+                <div class="question-group">
+                    <label>21)สัปดาห์ที่ผ่านมา ข้าพเจ้ารู้สึกว่าชีวิตไม่มีความหมาย</label>
+                    <div class="options">
+                        <button type="button" onclick="selectAnswer(20, 0, this)">ไม่เลย</button>
+                        <button type="button" onclick="selectAnswer(20, 1, this)">บางครั้ง</button>
+                        <button type="button" onclick="selectAnswer(20, 2, this)">บ่อยครั้ง</button>
+                        <button type="button" onclick="selectAnswer(20, 3, this)">เกือบทุกเวลา</button>
+                    </div>
+
+                </div>
+
+
+
+            </form>
+            <button type="button" id="nextButton" onclick="nextQuestion()">ถัดไป</button>
+            <button id="submitButton" onclick="calculateDASS()" style="display: none;">ส่งแบบประเมิน</button>
+
+            <div id="stressCircle" class="circle" style="display: none;"></div>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="Js/Form.js"></script>
+    <!-- Step End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Left Section -->
+                <div class="col-md-4 footer-item">
+                    <a href="index.html" class="p-0">
+                        <img src="Img/LOGO.png" alt="Logo" style="height: 60px;">
+                        <h3 class="text-white"><i class="fab fa-slack me-3"></i> EASEEAT</h3>
+                    </a>
+                    <p class="text-white mb-4">เว็บไซด์ให้การสนับสนุนผู้ที่มีปัญหาในเรื่องอาหารและสุขภาพจิต
+                        โดยนักโภชนาการและจิตแพทย์</p>
+                </div>
+
+                <!-- Footer Center Section -->
+                <div class="col-md-4 footer-item text-center">
+                    <h4 class="text-white mb-4">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="InstructionsForm.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ประเมิน</a></li>
+                        <li><a href="community.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ชุมชน</a></li>
+                        <li><a href="Nutrients.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                โภชนาการ</a></li>
+                        <li><a href="#" class="text-white"><i class="fas fa-angle-right me-2"></i> ปรึกษาส่วนตัว</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Right Section -->
+                <div class="col-md-4 footer-item text-end">
+                    <h4 class="text-white mb-4">Follow Us</h4>
+                    <ul class="list-unstyled d-flex justify-content-end">
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-white mb-0">© 2024 EaseEat. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <script type="module" src="Js/auth.js"></script>
+
+
+
+</body>
+
+</html>

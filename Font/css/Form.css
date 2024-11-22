@@ -1,0 +1,424 @@
+.question-group {
+    display: none; /* ซ่อนคำถามโดยค่าเริ่มต้น */
+}
+
+.question-group:first-child {
+    display: flex; /* แสดงคำถามแรก */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form {
+    padding: 50px 20px;
+    color: #333;
+    text-align: center;
+    border-radius: 8px;
+    margin: 30px auto;
+    width: 60%;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form h1, .Form h2 {
+    font-size: 50px;
+    color: #4A628A;
+    font-weight: bold;
+    margin-bottom: 70px;
+}
+
+.Form p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 70px;
+}
+
+.Form button {
+    padding: 12px 20px;
+    width: 270px;
+    height: 70px;
+    background-color: #4A628A;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); 
+}
+
+.Form button a {
+    color: white;
+    text-decoration: none;
+}
+
+.Form button:hover {
+    background-color: #1d2d49;
+}
+
+/*-------------------------------------------------------Step----------------------------*/
+
+.Step {
+    background-color: #F6F9FE; 
+    padding: 100px;
+}
+
+
+.Step-Intro {
+    padding: 60px 15px;  
+    color: #333;
+    text-align: center;
+    width: 80%;  
+    min-height: 600px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; 
+    border-radius: 20px;  
+    margin: 20px auto; 
+}
+
+.Step-Intro h1,
+.Step-Intro h2 {
+    font-size: 30px;  
+    color: #4A628A;
+    font-weight: bold;
+    margin-bottom: 50px; 
+    margin-top: 300px;
+}
+
+.fade-in h2{
+    padding: 0px 50px;
+}
+
+.Step-Intro p {
+    font-size: 20px;  
+    line-height: 1.6;
+    color: #4A628A;
+    margin-bottom: 30px;
+    padding: 0 20px; 
+}
+
+.Step-Intro-Info {
+    display: flex;
+    justify-content: center; 
+    gap: 50px;  
+    flex-wrap: wrap; 
+    width: 100%;
+}
+
+.Step-Intro-Info p {
+    font-size: 30px;  
+    margin: 10px;
+    width: 700px;  
+    border-right: 3px solid rgb(80, 84, 148);
+    margin-bottom: 70px; 
+    text-align: center;
+}
+
+.Step-Intro-Info p:first-child {
+    border-right: none;
+}
+
+.Step-Intro-Info p:nth-child(2) {
+    margin: 0;
+    width: 0;
+}
+
+.Step-Intro-Info p:last-child {
+    border-right: none;
+}
+
+
+.Step button {
+    padding: 12px 20px;
+    width: 270px;
+    height: 70px;
+    background-color: #4A628A;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); 
+    margin-top: 60px;
+}
+
+.Step button a {
+    color: white;
+    text-decoration: none;
+}
+
+.Step button:hover {
+    background-color: #1d2d49;
+}
+
+/*```````````````````````````````````````````````````````````````````````````````````````````````*/
+
+
+
+
+
+.Formcontainer {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* แนวตั้ง */
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.question-group {
+    display: none; /* ซ่อนคำถามทั้งหมด */
+    margin-bottom: 30px;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center; /* จัดกลางในแนวนอน */
+    justify-content: center; /* จัดกลางในแนวตั้ง (ถ้าต้องการ) */
+    border: 2px solid #4A628A;
+    padding: 50px 40px;
+    border-radius: 20px;
+}
+
+label {
+    font-size: 26px;
+    color: #000000;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+select {
+    width: 600px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* เว้นระยะห่างระหว่างปุ่ม */
+    margin-top: 15px;
+}
+
+.options button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4A628A;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.options button:hover {
+    background-color: rgb(1, 61, 124);
+}
+
+.options button.selected {
+    background-color: #012d5c; 
+    color: #fff;
+}
+
+
+.selected {
+    background-color: #4A628A;
+    color: #fff;
+    border: 2px solid #333;
+}
+
+/* Result Section Styling */
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px;
+    background-color: #F6F9FE;
+}
+
+.result-Intro {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.result-Intro h2 {
+    color: #4A628A;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.result-Intro p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.result-Intro #totalScore {
+    font-weight: bold;
+    font-size: 20px;
+    color: #4A628A;
+}
+
+/* Animation for Circle */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Circle for Stress Level */
+.circle {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+.result-Intro #resultText,
+.result-Intro #resuInfor {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin: 15px 0;
+}
+
+/* Buttons Styling */
+.result-Intro button {
+    background-color: #4A628A;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.result-Intro button:hover {
+    background-color: #36547A;
+}
+
+.result-Intro button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.result-Intro button a.nav-item {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 768px) {
+    .circle {
+        width: 100px;
+        height: 100px;
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .result {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .circle {
+        width: 80px;
+        height: 80px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}

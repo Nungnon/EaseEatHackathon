@@ -1,0 +1,242 @@
+/* Profile Section */
+.profile {
+    background: #F6F9FE;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* ปรับเป็น center เพื่อให้อยู่กึ่งกลางหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile-container {
+    max-width: 1200px; /* ขนาดที่เหมาะสม */
+    width: 100%; /* รองรับหน้าจอเล็ก */
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* ข้อความจัดให้อยู่กลาง */
+}
+
+/* Titles */
+.profile-title, .history-title {
+    text-align: center;
+    font-size: 2.2em; /* ขนาดใหญ่ขึ้น */
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Profile Information Section */
+.profile-info {
+    margin-bottom: 30px;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+    font-size: 1.4em; /* เพิ่มขนาดข้อความ */
+}
+
+.label {
+    font-weight: bold;
+    flex: 1;
+    color: #555;
+    text-align: left; /* ข้อความชิดซ้าย */
+}
+
+.profile-data {
+    flex: 2;
+    font-size: 1.2em;
+    color: #333;
+    text-align: right; /* ข้อความชิดขวา */
+}
+
+/* กำหนดสไตล์ของวงกลมระดับความเครียด */
+.stress-indicator {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    margin: 0 auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    animation: pulse 1.5s infinite; /* การเคลื่อนไหวที่ทำให้วงกลมขยายและหด */
+}
+
+
+/* Button Styling */
+.btn-my-posts {
+    padding: 15px 30px;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin: 30px auto;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-my-posts:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Assessment History */
+.assessment-history {
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 30px;
+    font-size: 1.2em; /* ขนาดใหญ่ขึ้น */
+   
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size:20px;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-date {
+    color: #555;
+    font-size: 1.1em;
+}
+
+.history-stress-level {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center; /* จัดตำแหน่งให้วงกลมและข้อความอยู่ในแถวเดียวกัน */
+}
+
+/* กำหนดสีสำหรับระดับความเครียด */
+.low {
+    color: green; /* ความเครียดต่ำ */
+}
+
+.medium {
+    color: #c3c710; /* ความเครียดปานกลาง */
+}
+
+.high {
+    color: orange; /* ความเครียดสูง */
+}
+
+.very-high {
+    color: red; /* ความเครียดรุนแรง */
+}
+
+/* สำหรับวงกลม */
+.history-stress-level span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: inherit; /* ใช้สีจากคลาสที่กำหนด */
+}
+
+
+/* ประวัติการประเมิน */
+.assessment-history {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toggle-buttons {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.toggle-button {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.toggle-button.active {
+    background-color: #4A628A;
+    color: #fff;
+}
+
+#assessmentHistory {
+    margin-top: 20px;
+}
+
+#stressGraph {
+    display: none;
+    margin-top: 20px;
+}
+
+.stress-indicator.low {
+    background-color: green;
+}
+
+.stress-indicator.medium {
+    background-color: yellow;
+}
+
+.stress-indicator.high {
+    background-color: orange;
+}
+
+.stress-indicator.very-high {
+    background-color: red;
+}
+
+#stress-indicator {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    margin: 0 auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+       
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}

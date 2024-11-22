@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EaseEat</title>
+
+    <!-- เพิ่ม favicon -->
+    <link rel="icon" href="Img/LOGO.png" type="image/x-icon">
+    <!-- เพิ่มฟอนต์ Lato Bold จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <!-- เพิ่ม Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- เพิ่มสไตล์ CSS -->
+    <link href="css/Header_Footer.css" rel="stylesheet">
+    <link href="css/Form.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="Home.html">
+                    <img src="Img/LOGO.png" alt="Logo">
+                    <h1>EASEEAT</h1>
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="Home.html" class="nav-item nav-link active">หน้าหลัก</a>
+                        <a href="InstructionsForm.html" class="nav-item nav-link">ประเมิน</a>
+                        <a href="community.html" class="nav-item nav-link">ชุมชน</a>
+                        <a href="Nutrients.html" class="nav-item nav-link">โภชนาการ</a>
+                        <a id="nav-login" href="login.html" class="nav-item nav-link">Login</a>
+                        <a id="logout" href="#" class="nav-item nav-link" style="display: none;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+
+    <!-- Step Start -->
+    <div class="Step">
+        <div class="Step-Intro">
+            <h2>ขั้นตอนการทำแบบประเมิน</h2>
+            <div class="Step-Intro-Info">
+                <p>1. อ่านคำถามแต่ละข้อและเลือกคำตอบที่ตรงกับความรู้สึกหรือประสบการณ์ของคุณในช่วงที่ผ่านมา</p>
+            </div>
+            <div class="Step-Intro-Info">
+                <p>2. ตอบคำถามอย่างตรงไปตรงมาเพื่อให้ผลการประเมินสะท้อนสถานะความเครียดของคุณอย่างแม่นยำและถูกต้อง</p>
+            </div>
+            <div class="Step-Intro-Info">
+                <p>3. หลังจากทำแบบประเมินเสร็จสิ้น คุณจะได้รับคะแนนที่แสดงถึงระดับความเครียด
+                    พร้อมคำแนะนำในการจัดการความเครียดในแต่ละระดับ</p>
+            </div>
+            <div class="fade-in">
+                <h2>แบบประเมินนี้เป็นเพียงเครื่องมือที่ช่วยให้คุณเข้าใจตัวเองมากขึ้น แต่ไม่ถือเป็นการวินิจฉัยทางการแพทย์
+                    หากคุณพบว่ามีความ
+                    เครียดในระดับสูงที่ส่งผลกระทบต่อชีวิตประจำวัน ควร
+                    พิจารณาการปรึกษาผู้เชี่ยวชาญด้านสุขภาพจิต</h2>
+                
+            </div>
+            <button><a href="Form.html" nav-item nav-link">เริ่มประเมิน</a></button>
+        </div>
+    </div>
+    <script src="Js/animation.js"></script>
+    <!-- Step End -->
+
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Left Section -->
+                <div class="col-md-4 footer-item">
+                    <a href="index.html" class="p-0">
+                        <img src="Img/LOGO.png" alt="Logo" style="height: 60px;">
+                        <h3 class="text-white"><i class="fab fa-slack me-3"></i> EASEEAT</h3>
+                    </a>
+                    <p class="text-white mb-4">เว็บไซด์ให้การสนับสนุนผู้ที่มีปัญหาในเรื่องอาหารและสุขภาพจิต
+                        โดยนักโภชนาการและจิตแพทย์</p>
+                </div>
+
+                <!-- Footer Center Section -->
+                <div class="col-md-4 footer-item text-center">
+                    <h4 class="text-white mb-4">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="InstructionsForm.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ประเมิน</a></li>
+                        <li><a href="community.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                ชุมชน</a></li>
+                        <li><a href="Nutrients.html" class="text-white"><i class="fas fa-angle-right me-2"></i>
+                                โภชนาการ</a></li>
+                        <li><a href="#" class="text-white"><i class="fas fa-angle-right me-2"></i> ปรึกษาส่วนตัว</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Footer Right Section -->
+                <div class="col-md-4 footer-item text-end">
+                    <h4 class="text-white mb-4">Follow Us</h4>
+                    <ul class="list-unstyled d-flex justify-content-end">
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="me-4">
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-white mb-0">© 2024 EaseEat. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <script type="module" src="Js/auth.js"></script>
+
+
+
+</body>
+
+</html>
